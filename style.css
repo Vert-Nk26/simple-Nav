@@ -96,6 +96,7 @@ ul li a:hover::after {
   }
   .menu {
     width: 25px;
+    
     height: 2px;
     background-color: rgb(2, 5, 17);
     position: relative;
