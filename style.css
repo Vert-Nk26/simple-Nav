@@ -8,7 +8,6 @@
 }
 html {
   font-size: 65.5%;
-  overflow-x: hidden;
 }
 
 body {
@@ -24,6 +23,7 @@ body {
   align-items: center;
   width: 100%;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 .burger__menu {
@@ -88,7 +88,7 @@ ul li a:hover::after {
   width: 100%;
   object-fit: contain;
 }
-
+/* ON Small Devices */
 @media screen and (max-width: 630px) {
   .burger__menu {
     display: block;
@@ -96,11 +96,12 @@ ul li a:hover::after {
   }
   .menu {
     width: 25px;
-    
+
     height: 2px;
     background-color: rgb(2, 5, 17);
     position: relative;
     cursor: pointer;
+    transition: 0.3s;
   }
   .menu::after,
   .menu::before {
@@ -116,16 +117,56 @@ ul li a:hover::after {
   .menu::after {
     transform: translateY(5px);
   }
+
+  .burger__menu.close .menu {
+    background-color: transparent;
+    transform: translateY(-6px);
+  }
+  .burger__menu.close .menu::before {
+    transform: translate(6px, -5px) rotate(45deg);
+  }
+  .burger__menu.close .menu::after {
+    transform: translate(6px, -5px) rotate(-45deg);
+  }
+
+  nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 50%;
+  }
   ul {
     flex-direction: column;
-    gap: 0;
-    transform: translateX(200%);
+    gap: 2rem;
+    background-color: rgba(255, 255, 255, 0.143);
+    align-items: center;
+    border-radius: 0 0 1rem 7rem;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.035);
+    transform: translateY(-1000%);
+    transition: 0.5s;
+    backdrop-filter: blur(0.2rem);
+  }
+
+  .active {
+    transform: translateY(0);
   }
   ul li {
-    padding: 0;
+    padding: 2;
+    opacity: 0;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   .logo {
-    width: 200px;
+    width: 100px;
   }
 
   .logo > img {
