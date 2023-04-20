@@ -1,7 +1,6 @@
 const getBurgerMenu = document.getElementById("burger")
 const getNavigation = document.getElementById("navigation")
 const getListItems = Array.from(document.querySelectorAll("li"))
-// const getMenu = document.querySelector(".menu")
 
 getBurgerMenu.addEventListener("click", () => {
   showNav()
