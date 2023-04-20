@@ -95,10 +95,11 @@ ul li a:hover::after {
     padding: 1rem;
   }
   .menu {
-    width: 30px;
+    width: 25px;
     height: 2px;
     background-color: rgb(2, 5, 17);
     position: relative;
+    cursor: pointer;
   }
   .menu::after,
   .menu::before {
